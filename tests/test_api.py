@@ -1,4 +1,4 @@
-﻿"""Tests for the MAF API endpoints."""
+"""Tests for the MAF API endpoints."""
 
 from __future__ import annotations
 
@@ -72,3 +72,19 @@ class TestGeneratePolicy:
     def test_generate_policy_missing_fields(self, client: TestClient) -> None:
         resp = client.post("/generate-policy", json={})
         assert resp.status_code == 422
+
+    def test_generate_policy_mode_and_steps(self, client: TestClient) -> None:
+        resp = client.post("/generate-policy", json=self.PAYLOAD)
+        assert resp.status_code == 200
+        data = resp.json()
+        assert data["mode_used"] == "stub"
+        assert data["duration_s"] >= 0
+        steps = data["steps"]
+        assert len(steps) == 3
+        assert steps[0]["agent"] == "veille_externe"
+        assert steps[1]["agent"] == "rag_interne"
+        assert steps[2]["agent"] == "producteur_politique"
+        for s in steps:
+            assert s["status"] == "done"
+            assert s["duration_s"] >= 0
+            assert s["fallback_reason"] == ""
