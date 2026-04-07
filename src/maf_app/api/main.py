@@ -1,4 +1,4 @@
-﻿"""FastAPI application entry point."""
+"""FastAPI application entry point."""
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ logging.basicConfig(
 
 app = FastAPI(
     title="GOVAIAPP-MAF",
-    description="AI Governance Policy Generator  MAF Edition",
+    description="AI Governance Policy Generator -- MAF Edition",
     version="0.1.0",
 )
 
