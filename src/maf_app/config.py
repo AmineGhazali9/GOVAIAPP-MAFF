@@ -1,4 +1,4 @@
-"""Configuration module — loads settings from environment variables."""
+"""Configuration module -- loads settings from environment variables."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 load_dotenv()
 
-# Mapping: logical agent name → environment variable for its Foundry ID
+# Mapping: logical agent name -> environment variable for its Foundry ID
 AGENT_ENV_VARS: dict[str, str] = {
     "veille_externe": "FOUNDRY_AGENT_VEILLE_EXTERNE_ID",
     "rag_interne": "FOUNDRY_AGENT_RAG_ID",
