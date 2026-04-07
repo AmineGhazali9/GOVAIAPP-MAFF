@@ -5,7 +5,7 @@ build-backend = "setuptools.backends._legacy:_Backend"
 [project]
 name = "govaiapp-maf"
 version = "0.1.0"
-description = "Migration AutoGen â†’ Microsoft Agent Framework (MAF) â€” AI Governance Policy Generator"
+description = "Migration AutoGen -> Microsoft Agent Framework (MAF) -- AI Governance Policy Generator"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -33,4 +33,3 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
-

@@ -18,13 +18,3 @@ ENV/
 # IDE
 .vscode/settings.json
 .idea/
-
-# Testing
-.pytest_cache/
-htmlcov/
-.coverage
-coverage.xml
-
-# OS
-.DS_Store
-Thumbs.db
