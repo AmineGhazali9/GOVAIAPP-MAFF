@@ -38,9 +38,9 @@ _FOUNDRY_CONFIGURED = (
 
 @pytest.mark.skipif(not _FOUNDRY_CONFIGURED, reason="Foundry not configured")
 class TestCallAgentFoundryLive:
-    """Live Foundry tests — only run when credentials are available."""
+    """Live Foundry tests -- only run when credentials are available."""
 
     def test_veille_externe_returns_content(self) -> None:
-        result = call_agent("veille_externe", "Test: analyse réglementaire IA")
+        result = call_agent("veille_externe", "Test: analyse reglementaire IA")
         assert isinstance(result, str)
         assert len(result) > 0
