@@ -1,4 +1,4 @@
-"""MAF agents — base types and shared models."""
+"""MAF agents -- base types and shared models."""
 
 from __future__ import annotations
 
