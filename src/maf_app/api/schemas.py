@@ -1,4 +1,4 @@
-﻿"""Pydantic schemas for the MAF API."""
+"""Pydantic schemas for the MAF API."""
 
 from __future__ import annotations
 
@@ -17,6 +17,15 @@ class Source(BaseModel):
     source: str
 
 
+class PipelineStep(BaseModel):
+    """Timing and status for a single pipeline agent step."""
+
+    agent: str
+    status: str  # "done" | "failed" | "fallback"
+    duration_s: float
+    fallback_reason: str = ""
+
+
 class CompanyContext(BaseModel):
     """Input request for policy generation."""
 
@@ -32,6 +41,9 @@ class PolicyDraftResponse(BaseModel):
 
     policy_markdown: str
     sources: list[Source] = []
+    mode_used: str = "stub"
+    steps: list[PipelineStep] = []
+    duration_s: float = 0.0
 
 
 class HealthResponse(BaseModel):
